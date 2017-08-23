@@ -10,7 +10,7 @@ public:
 	void vel(int velocity);
 	void raw_vel(int velocity);
 
-private:
+protected:
 	int pinPwn;
 	int pinIn1;
 	int pinIn2;
