@@ -4,20 +4,20 @@
 SServo::SServo(int pin)
 {
 	pinServo = pin;
-	Servo s;
 
 	s.attach(pin);
 }
 
-SServo::read()
+int SServo::read()
 {
 	return positionServo;
 }
 
-SServo::setPos(int position)
+void SServo::setPos(int position)
 {
 	if (position >= 0 || position <= 180)
 	{
 		s.write(position);
+		positionServo = position;
 	}
 }

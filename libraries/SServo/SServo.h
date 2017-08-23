@@ -1,19 +1,20 @@
 #ifndef SServo_h
 #define SServo_h
 
+#include "Servo.h"
 #include "Arduino.h"
-#include <Servo.h>
 
 class SServo
 {
 public:
 	SServo(int pin);
-	~SServo();
+	//~SServo();
 	int read();
 	void setPos(int position);
 private:
-	int pinServo = 0;
+	int pinServo;
 	int positionServo = -1;
+	Servo s;
 };
 
 
