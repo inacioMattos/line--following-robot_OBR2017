@@ -9,6 +9,7 @@ public:
 	Motor(int pwnPin, int in1Pin, int int2Pin);
 	void vel(int velocity);
 	void raw_vel(int velocity);
+	void move(int pwn, int in1, int in2, int velocity);
 
 protected:
 	int pinPwn;

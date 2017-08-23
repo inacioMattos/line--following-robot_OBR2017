@@ -14,17 +14,25 @@ Motor::Motor(int pwnPin, int in1Pin, int in2Pin)
 
 void Motor::vel(int velocity)
 {
-	digitalWrite(pinIn1, HIGH);
-	digitalWrite(pinIn2, LOW);
-
 	int x = map(velocity, -100, 100, -255, 255);
-	analogWrite(pinPwn, x);
+
+	if (x < 0)
+	{
+		x *= -1;
+	    move(pinPwn, pinIn2, pinIn1, x);
+	}
+	
+	else move (pinPwn, pinIn1, pinIn2, x);
 }
 
 void Motor::raw_vel(int velocity)
 {
-	digitalWrite(pinIn1, HIGH);
-	digitalWrite(pinIn2, LOW);
+	move(pinPwn, pinIn1, pinIn2, velocity);
+}
 
-	analogWrite(pinPwn, velocity);
+void Motor::move(int pwn, int in1, int in2, int velocity)
+{
+	digitalWrite(in1, HIGH);
+	digitalWrite(in2, LOW);
+	analogWrite(pwn, velocity);
 }
